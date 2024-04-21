@@ -35,9 +35,9 @@ This application provides personalized movie recommendations based on current we
 ### How to Use
 Simply open the application, and it will automatically fetch the current weather in your location. Based on the weather, the app will display a list of recommended movies along with detailed information to help you decide what to watch.
 
-![MovieHomePage](https://github.com/Priyanker/DataEngineeringProject/assets/14792786/5bbfa21f-e3f9-4467-819c-a4c18b6df106)
-![MovieListPage](https://github.com/Priyanker/DataEngineeringProject/assets/14792786/2ffb2e5a-480f-4a39-baaf-f86863faf3bd)
+![MovieHomePage](https://github.com/Priyanker/DataEngineeringProject/assets/14792786/e9daa66e-891d-4a7b-8703-91361633808e)
 
+![MovieListPage](https://github.com/Priyanker/DataEngineeringProject/assets/14792786/13acb9f3-3b22-424d-a3f1-449372e84ef8)
 
 
 ### Contributing
