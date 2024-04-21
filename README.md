@@ -19,7 +19,7 @@ This application provides personalized movie recommendations based on current we
 ### Setup and Installation
 1. **Clone the Repository**: 
    ```bash
-   git clone [[repository-url]](https://github.com/Priyanker/DataEngineeringProject.git)
+   git clone https://github.com/Priyanker/DataEngineeringProject.git
    ```
 2. **Install Dependencies**: 
    ```bash
