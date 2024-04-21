@@ -10,11 +10,10 @@ This application provides personalized movie recommendations based on current we
 - **User-Friendly Interface**: Easy-to-navigate UI that allows users to quickly find movie recommendations tailored to the weather.
 
 ### Technologies Used
-- **Frontend**: [Specify technologies like React, Vue, Angular, or HTML/CSS]
-- **Backend**: [Detail any backend technologies used like Node.js, Flask, Django]
+- **Frontend**: Django
+- **Backend**: Python
 - **APIs**: OpenWeather API for weather data.
 - **Data Management**: Pandas for data manipulation and processing.
-- **Deployment**: [Mention any platforms used for deployment like Heroku, AWS, etc.]
 
 ### Setup and Installation
 1. **Clone the Repository**: 
@@ -23,13 +22,12 @@ This application provides personalized movie recommendations based on current we
    ```
 2. **Install Dependencies**: 
    ```bash
-   cd [project-folder]
-   pip install -r requirements.txt
+   cd weather_movie_recommender
    ```
 3. **API Keys**: Ensure you have an API key from OpenWeather API and set it in your environment variables or a config file.
 4. **Run the Application**:
    ```bash
-   python app.py
+   python manage.py runserver
    ```
 
 ### How to Use
