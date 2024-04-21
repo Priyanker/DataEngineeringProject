@@ -1,0 +1,98 @@
+{% load static %}
+{% load movie_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendations</title>
+    <link href="{% static 'recommendations/movies.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="weather-header">
+        <h1>{{ weather_data.name }}</h1>
+        <h2>{{ weather_data.weather.0.description.capitalize }}</h2>
+        <img src="{% static 'recommendations/weathericons/' %}{{ weather_data.weather.0.icon }}.png" alt="{{ weather_data.weather.0.description }}">
+        <!-- Thematic introduction to the genres -->
+        <p>Curated picks for a {{ weather_data.weather.0.description }} day:</p>
+        <ul class="genre-list">
+            {% for genre, movies in movie_recommendations_list.items %}
+                <li onclick="scrollToGenre('{{ genre|lower }}')">
+                    {{ genre }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+    <div class="movies-container">
+        <h1 style="text-align: center;">Movie Recommendations</h1>
+        {% for genre, movies in movie_recommendations_list.items %}
+            <h2 style="text-align: center;" id="{{ genre|lower }}">{{ genre.capitalize }}</h2>
+            {% for movie in movies.itertuples %}
+                <div class="movie" onclick="openModal('{{ movie.movie_id }}')">
+                    <h3>{{ movie.movie_name }}</h3>
+                    {% if movie.tagline and movie.tagline|lower|stringformat:"s" != "nan" %}
+                        <p>Tagline: {{ movie.tagline }}</p>
+                    {% endif %}
+                    {% if movie.overview and movie.overview|lower|stringformat:"s" != "nan" %}
+                        <p>Overview: {{ movie.overview }}</p>
+                    {% endif %}
+                    {% if movie.runtime %}
+                        <p>Runtime: {{ movie.runtime }} minutes</p>
+                    {% endif %}
+                    <!-- Trigger/Open The Modal -->
+                    <button class="button-more-details" onclick="openModal('{{ movie.movie_id }}')">More Details</button>
+                </div>
+                <hr>
+    
+                <!-- The Modal -->
+                <div id="modal-{{ movie.movie_id }}" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('{{ movie.movie_id }}')">&times;</span>
+                        <h3>{{ movie.movie_name }}</h3>
+                        <!-- Add other movie details here -->
+                        {% if movie.tagline and movie.tagline|lower|stringformat:"s" != "nan" %}
+                            <p>Tagline: {{ movie.tagline }}</p>
+                        {% endif %}
+                        {% if movie.overview and movie.overview|lower|stringformat:"s" != "nan" %}
+                            <p>Overview: {{ movie.overview }}</p>
+                        {% endif %}
+                        {% if movie.runtime %}
+                            <p>Runtime: {{ movie.runtime }} minutes</p>
+                        {% endif %}
+                        {% if movie.certificate and movie.certificate|lower|stringformat:"s" != "nan" %}
+                            <p>Certificate: {{ movie.certificate }}</p>
+                        {% endif %}
+                        {% if movie.director and movie.director|lower|stringformat:"s" != "nan" %}
+                            <p>Director: {{ movie.director }}</p>
+                        {% endif %}
+                        {% if movie.star and movie.star|lower|stringformat:"s" != "nan" %}
+                            <p>Stars: {{ movie.star }}</p>
+                        {% endif %}
+                        {% if movie.rating %}
+                            <p>Rating: {{ movie.rating }}</p>
+                        {% endif %}
+                        {% if movie.release_date %}
+                            <p>Release Date: {{ movie.release_date|date:"Y-m-d" }}</p>
+                        {% endif %}
+                        {% if movie.votes %}
+                            <p>Votes: {{ movie.votes }}</p>
+                        {% endif %}
+                        {% if movie.revenue %}
+                            <p>Revenue: {{ movie.revenue|millions }}</p>
+                        {% endif %}
+                        {% if movie.budget %}
+                            <p>Budget: {{ movie.budget|millions }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+    
+    <script src="{% static 'recommendations/modal.js' %}"></script>
+    
+</body>
+</html>

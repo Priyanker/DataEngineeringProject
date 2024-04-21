@@ -1,0 +1,86 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #ece9e6; /* Neutral background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+form {
+    width: 100%;
+    max-width: 600px;
+}
+
+.input-container {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+
+.input-container.not-empty::before {
+    /* Hide the pseudo-element cursor when there's text */
+    display: none;
+}
+
+@keyframes blink {
+    50% {
+        visibility: hidden;
+    }
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 15px 10px;
+    padding-left: 20px; /* Add padding to make space for the blinking cursor */
+    font-size: 4rem;
+    border: none;
+    border-bottom: 2px solid #c7d0d1;
+    background-color: transparent;
+    color: #c7d0d1;
+    margin-bottom: 20px;
+}
+input::placeholder {
+    color: #c7d0d1; /* Specify your desired color here */
+}
+input[type="text"]:focus {
+    outline: none;
+    border-color: #94e1e1;
+}
+
+input[type="text"]:focus::placeholder {
+    color: #c7d0d1;
+}
+
+
+button {
+    padding: 15px 25px;
+    font-size: 1.5rem; /* Larger button text */
+    color: #fff;
+    background-color: #007aff; /* Button color */
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 20px; /* More margin for visual separation */
+    width: 100%; /* Button takes full width of its container */
+    max-width: 380px; /* Max width for the button */
+    display: block; /* Display as block */
+    margin-left: auto; /* Align to the right */
+    margin-right: -35px;
+
+    transition: box-shadow 0.3s, background-color 0.3s;
+    background: #8e9eab; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2eb1d1, #64bd47); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+
+button:hover {
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    background: -webkit-linear-gradient(to right, #8e9eab, #eef2f3); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #bd4747, #d1a62e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

@@ -1,0 +1,189 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendations</title>
+    <link href="{% static 'recommendations/building-loader.css' %}" rel="stylesheet">
+    <link href="{% static 'recommendations/index.css' %}" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('{% static "recommendations/movie-background5.webp" %}');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="form-container">
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-container blinking">
+                <input type="text" name="city" placeholder="Enter city name" oninput="handleInput(event)" autofocus>
+            </div>
+            <button type="submit">Get Movie Recommendations</button>
+        </form>
+    </div>
+    <div id="preloader" style="display: none;">
+        <div class="content">
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <!-- Repeat for a total of 16 cuboids each containing 6 sides -->
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+            <!-- ... -->
+            <div class="cuboid">
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+                <div class="side"></div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // JavaScript function to handle the input event
+        function handleInput(event) {
+            var container = event.target.parentElement;
+            if(event.target.value) {
+                container.classList.add('not-empty');
+            } else {
+                container.classList.remove('not-empty');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var form = document.querySelector('form');
+            form.onsubmit = function() {
+                // Hide the form
+                document.getElementById('form-container').style.display = 'none';
+                // Show the loading screen
+                document.getElementById('preloader').style.display = 'block';
+                document.body.style.backgroundColor = "#111";
+                document.body.style.backgroundImage = "none";
+            };
+        });
+    </script>
+
+</body>
+</html>
