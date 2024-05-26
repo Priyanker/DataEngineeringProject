@@ -364,7 +364,9 @@ class WeatherMovieRecommender:
         """
 
         BASE_URL = "http://api.openweathermap.org/data/2.5/weather?"
-        API_KEY = "1a4f882c4c3b21bc978a5bea92cdf5e9"
+        import os
+        API_KEY = os.getenv('API_KEY')
+
 
         url = BASE_URL + "appid=" + API_KEY + "&q=" + self.city
 
