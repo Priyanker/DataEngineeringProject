@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/a6453bd0-ca4c-4d8b-90f1-864c470ed19c/resourceGroups/DataEngineeringMovieProject/providers/Microsoft.Web/sites/MovieRecommendationByWeather",
+    "appService.deploySubpath": "."
+}
